@@ -22,12 +22,9 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,js,json,css,md}": [
-      "lint",
-      "type-check",
-      "format",
-      "test",
-      "build",
+    "src/**/*.{ts,tsx,js,json,css,md}": [
+      "tslint --fix",
+      "prettier --write",
       "git add"
     ]
   },
