@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "type-check": "tsc",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx,js,json,css,md}'",
     "format": "prettier --write",
+    "type-check": "tsc --skipLibCheck",
     "test": "jest --passWithNoTests",
     "build": "webpack",
     "build:watch": "webpack --watch",
@@ -14,11 +14,12 @@
     "start:node": "node ./dist/index.js",
     "start:nodemon": "nodemon ./dist/index.js",
     "start": "run-s pre-start build start:node",
-    "start:watch": "run-s pre-start build:watch start:nodemon"
+    "start:watch": "run-s pre-start build && run-p build:watch start:nodemon",
+    "pre-commit": "run-s type-check build test"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && yarn pre-commit"
     }
   },
   "lint-staged": {

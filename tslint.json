@@ -2,7 +2,9 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended"],
   "jsRules": {},
-  "rules": {},
+  "rules": {
+    "quotemark": [true, "single"]
+  },
   "rulesDirectory": [],
   "linterOptions": {
     "exclude": ["node_modules", "dist", "package.json"]
