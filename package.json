@@ -27,6 +27,7 @@
     "src/**/*.{ts,tsx,js,json,css,md}": [
       "tslint --fix",
       "prettier --write",
+      "yarn build",
       "git add"
     ]
   },
