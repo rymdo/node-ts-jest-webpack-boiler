@@ -3,10 +3,12 @@ export {};
 // tslint:disable:no-console
 console.log('Running....');
 
-const testFunc = () => {
-  return new Promise((resolve, reject) => {
-    resolve();
-  });
+const testFunc = (): Promise<void> => {
+  return new Promise(
+    (resolve, reject): void => {
+      resolve();
+    }
+  );
 };
 
 testFunc().then(() => {

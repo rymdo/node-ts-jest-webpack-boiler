@@ -3,7 +3,15 @@
   "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single"]
+    "quotemark": [true, "single"],
+    "typedef": [
+      true,
+      "call-signature",
+      "arrow-call-signature",
+      "parameter",
+      "member-variable-declaration"
+    ],
+    "trailing-comma": [false]
   },
   "rulesDirectory": [],
   "linterOptions": {
