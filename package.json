@@ -9,25 +9,24 @@
     "format": "prettier --write",
     "type-check": "tsc --skipLibCheck",
     "test": "jest --passWithNoTests",
-    "build": "webpack",
-    "build:watch": "webpack --watch",
-    "pre-start": "run-s clean lint type-check test",
-    "start:node": "node ./dist/index.js",
-    "start:nodemon": "nodemon ./dist/index.js",
-    "start": "run-s pre-start build start:node",
-    "start:watch": "run-s pre-start build && run-p build:watch start:nodemon",
-    "pre-commit": "run-s clean type-check build test"
+    "pre-build": "run-s clean lint type-check test",
+    "build": "yarn pre-build && webpack",
+    "build:watch": "yarn pre-build && webpack --watch",
+    "run:node": "node ./dist/index.js",
+    "run:nodemon": "nodemon ./dist/index.js",
+    "start": "run-s build run:node",
+    "start:watch": "run-p build:watch run:nodemon",
+    "pre-commit": "yarn build"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn pre-commit"
+      "pre-commit": "yarn pre-commit && lint-staged"
     }
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,json,css,md}": [
       "tslint --fix",
       "prettier --write",
-      "yarn build",
       "git add"
     ]
   },
