@@ -21,8 +21,8 @@
     "start:prod": "run-s build:prod run:node",
     "start:dev": "run-s build:dev run:node",
     "start": "yarn start:prod",
-    "start:watch:dev": "run-p build:watch:dev run:nodemon",
-    "start:watch:prod": "run-p build:watch:prod run:nodemon",
+    "start:watch:dev": "yarn build:dev && run-p build:dev:watch run:nodemon",
+    "start:watch:prod": "yarn build:prod && run-p build:prod:watch run:nodemon",
     "start:watch": "yarn start:watch:prod",
     "pre-commit": "yarn build:prod"
   },

@@ -13,5 +13,5 @@ const testFunc = (): Promise<void> => {
 
 testFunc().then(() => {
   // tslint:disable:no-console
-  console.log('YAY!!');
+  console.log('YAY!');
 });
