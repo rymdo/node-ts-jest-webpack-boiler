@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && rimraf coverage",
     "lint": "tslint --fix -c tslint.json 'src/**/*.{ts,tsx,js,json,css,md}'",
     "format": "prettier --write 'src/**/*.{ts,tsx,js,json,css,md}'",
     "type-check": "tsc --skipLibCheck",
